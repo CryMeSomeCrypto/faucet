@@ -1,17 +1,5 @@
 Cryptocurrency-faucet-script
 ============================
-Added by Chao:
-
-Last updated 3/3/2018
-- Live coin price update with exchange api
-- Payouts based on USD value, so changes accordingly.
-- Operator fee added.
-- Template include chatango and twitter feed.
-- Displays Total promo payouts.
-- Sample config file for Chaincoin and Social Send.
-
-============================
-* A big THANK YOU goes to a friend who provided the script and requested to not be named.
 
 Faucet features:
 
