@@ -33,18 +33,18 @@ SOFTWARE.
 $config = array(
 
     // e.g. Dogecoin
-    "coinname" => "",
+    "coinname" => "BitcoinGreen",
     // coin and btc api's
-    "coin_api" => "", //for real time price and calculation of payout
-    "btc_api" => "",
+    "coin_api" => "https://www.cryptopia.co.nz/api/GetMarket/BITG_BTC", //for real time price and calculation of payout
+    "btc_api" => "https://www.bitstamp.net/api/ticker/",
 
 
 	// RPC settings:
 	// These are the settings you put into e.g. dogecoin.conf. They allow the faucet to interact with your wallet
     "rpc_user" => "",
 	"rpc_password" => "",
-	"rpc_host" => "",
-	"rpc_port" => "",
+	"rpc_host" => "localhost",
+	"rpc_port" => "17100",
 
 	// MySQL settings:
     "mysql_user" => "",
@@ -54,16 +54,16 @@ $config = array(
 	"mysql_table_prefix" => "sf_", // table prefix to use
 
 	// Coin values:
-	"minimum_payout" => 0.03, // minimum coins to be awarded
-	"maximum_payout" => 0.03, // maximum coins to be awarded in $ value
+	"minimum_payout" => 0.01, // minimum coins to be awarded
+	"maximum_payout" => 0.05, // maximum coins to be awarded in $ value
 	"payout_threshold" => 1, // payout threshold, if the faucet contains less coins than this, display the 'dry_faucet' message
-	"payout_interval" => "3h", // payout interval, the wait time for a user between payouts. Type any numerical value with either a "m" (minutes), "h" (hours), or "d" (days), attached. Examples: 50m for a 50 minute delay, 7h for a 7 hour delay, etc.
+	"payout_interval" => "1m", // payout interval, the wait time for a user between payouts. Type any numerical value with either a "m" (minutes), "h" (hours), or "d" (days), attached. Examples: 50m for a 50 minute delay, 7h for a 7 hour delay, etc.
 
 
     // Payment system:
 	"stage_payments" => true, // stage payments in the database, to be executed later
-	"stage_payment_account_name" => "", // account name to send transactions with, needs to be valid // you also can leave it empty
-	"staged_payment_threshold" => 100, // staged payment threshold, all staged payments are executed when this number is reached
+	"stage_payment_account_name" => "faucet", // account name to send transactions with, needs to be valid // you also can leave it empty
+	"staged_payment_threshold" => 1, // staged payment threshold, all staged payments are executed when this number is reached
 	"staged_payment_cron_only" => false, // ignore the stage_amount counter, only execute staged payments when the cron script is called
 
 	// this option has 3 possible values: "ip_address", "coin_address", and "both". It defines what to check for when a user enters a coin address in order to decide whether or not to award coins to this user.
@@ -71,6 +71,7 @@ $config = array(
 	// "coin_address": checks the user coins address in the payout history.
 	// "both": check both the IP and coins address in the payout history.
 	"user_check" => "both",
+
 
 	"use_captcha" => true, // require the user to enter a captcha
 
@@ -93,7 +94,7 @@ $config = array(
 	"use_promo_codes" => true, // accept promo codes
 
 	"operator_fee" => 5, //% fee for faucet operator,
-	"operator_address" => "",
+	"operator_address" => "GUoZP4kXCtmboCc9fDWzve2bnqbdyGhtdW",
 
 
 	// if the wallet is encrypted, enter the PASSPHRASE here. Leave it blank otherwise!
@@ -103,8 +104,8 @@ $config = array(
 	"donation_address" => "", // donation address to display
 
 	// Faucet look and feel:
-	"title" => "Faucet", // page title, may be used by the template too
-	"template" => "default", // template to use (see the templates directory)
+	"title" => "BitcoinGreen", // page title, may be used by the template too
+	"template" => "bitg", // template to use (see the templates directory)
     //code for advertisements:
 	"ads" => ""
 	);
