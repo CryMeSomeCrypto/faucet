@@ -24,14 +24,14 @@
 
 <!-- Slider
     ================================================== -->
-<link href="../css/owl.carousel.css" rel="stylesheet" media="screen">
-<link href="../css/owl.theme.css" rel="stylesheet" media="screen">
+<!--  <link href="../css/owl.carousel.css" rel="stylesheet" media="screen"> -->
+<!--  <link href="../css/owl.theme.css" rel="stylesheet" media="screen">  -->
 
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/nivo-lightbox/nivo-lightbox.css">
-<link rel="stylesheet" type="text/css" href="../css/nivo-lightbox/default.css">
+<!-- <link rel="stylesheet" type="text/css" href="../css/nivo-lightbox/nivo-lightbox.css">  -->
+<!-- <link rel="stylesheet" type="text/css" href="../css/nivo-lightbox/default.css">  -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -158,10 +158,10 @@ environmental and economic problems arising from such issues</p>
 
         Payments will be sent after <b>{{STAGED_PAYMENT_THRESHOLD}}</b> staged payments.<br/>
         Operator fee: <b>{{OPERATOR_FEE}}%</b><br/><br/>
-        You can get free {{COINNAME}} every <b>12 HOURS</b>. 
+        You can get free {{COINNAME}} every <b>12 Hours</b>. 
     </div>
    <div class="row">
-    <div class="col-md-3 text-center col-lg-6">
+    <div class="col-xs-12 col-md-6 text-center">
         <div class="service-media"> </div>
         <div class="service-desc">
 			<a class="twitter-follow-button"
@@ -179,7 +179,7 @@ Follow @TwitterDev</a>
         <div class="service-desc">
           <h3>Funded by donations</h3>
           <p> This faucet was started with personal financing unaffiliated with the BITG team, we have since made a partnership to fund the faucet while I focus on improving the UI experience! </p>
-			<b> BITG: GWVER6Q8Gzs4WPKPkWzFiFhtgrcud4xrg1 </b>
+			<b> BITG: {{DONATION_ADDRESS}} </b>
         </div>
       </div>
 </div>
@@ -195,11 +195,10 @@ Follow @TwitterDev</a>
       <hr>
       <p>Enter your wallet address and collect the free BITG! Check with BITG Discord for Promo-codes (optional)</p>
     </div>
-    <div class="categories"> </div>
-    <div class="row"> </div>
-
+	</div>
+	</div>
 	  
-	  
+<center>  
 <?php
         switch ($this->status())
         {
@@ -352,10 +351,9 @@ Follow @TwitterDev</a>
     break;
     }
     ?>
-</div>
-  </div>
-<center>{{ADS}}</center>
-</div>
+
+{{ADS}}</center>
+
 <!-- roots Section -->
 <div id="roots" class="text-center">
   <div class="overlay">
@@ -398,12 +396,12 @@ Follow @TwitterDev</a>
 </div>
 <script type="text/javascript" src="../js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="../js/bootstrap.js"></script> 
-<script type="text/javascript" src="../js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="../js/nivo-lightbox.js"></script> 
+<!-- <script type="text/javascript" src="../js/SmoothScroll.js"></script>  -->
+<!-- <script type="text/javascript" src="../js/nivo-lightbox.js"></script>  -->
 <script type="text/javascript" src="../js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="../js/owl.carousel.js"></script> 
+<!-- <script type="text/javascript" src="../js/owl.carousel.js"></script> -->
 <script type="text/javascript" src="../js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="../js/contact_me.js"></script> 
+<!-- <script type="text/javascript" src="../js/contact_me.js"></script> -->
 <script type="text/javascript" src="../js/main.js"></script>
 
 <script type="text/javascript"  charset="utf-8">
