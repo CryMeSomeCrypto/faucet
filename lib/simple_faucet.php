@@ -178,10 +178,10 @@ class simple_faucet
 												}
 											}
 										}
-									//$this->payout_amount = mt_rand($this->config["minimum_payout"]*10000,$this->config["maximum_payout"]*10000)/10000; // calculate a random CHAIN amount
+									$this->payout_amount = mt_rand($this->config["minimum_payout"]*10000,$this->config["maximum_payout"]*10000)/10000; // calculate a random CHAIN amount
 
 									//$this->payout_amount = number_format($this->float_rand($this->config["minimum_payout"],$this->config["maximum_payout"]) / $this->usd_value), 8);
-									$this->payout_amount = $this->config["maximum_payout"] / $this->usd_value;
+									//$this->payout_amount = $this->config["maximum_payout"] / $this->usd_value;
 
 									$this->db->query("INSERT INTO `".$this->db->escape_string($this->config["mysql_table_prefix"])."payouts` (`payout_amount`,`ip_address`,`payout_address`,`promo_code`,`promo_payout_amount`,`timestamp`) VALUES ('".$this->payout_amount."','".$this->db->escape_string($_SERVER["REMOTE_ADDR"])."','".$this->db->escape_string($chaincoin_address)."','".$this->db->escape_string($promo_code)."','".$this->promo_payout_amount."',NOW())"); // insert the transaction into the payout log
 

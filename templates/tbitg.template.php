@@ -5,10 +5,19 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="author" content="Cryptocurrency faucet script" />
 
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../img/tbitg.favicon.ico" type="image/x-icon"/>
     <!-- Default CSS -->
     <link rel="stylesheet" href="./css/default.css" type="text/css" />
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122596044-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122596044-2');
+</script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -16,7 +25,8 @@
 
     <!-- Bootstrap CDN Minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+    <!-- chat box -->
+<script id="cid0020000192923326725" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 229px;height: 239px;">{"handle":"bitcoingreen","arch":"js","styles":{"a":"006600","b":100,"c":"FFFFFF","d":"FFFFFF","k":"006600","l":"006600","m":"006600","n":"FFFFFF","p":"10","q":"006600","r":100,"usricon":0,"pos":"br","cv":1,"cvbg":"009900","cvw":263,"cvh":33,"ticker":1,"fwtickm":1}}</script>
     <!-- Bootstrap CDN Minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
@@ -42,7 +52,7 @@
 
 <div id="wrapper" class="container">
 <div id="babasbmsgx" style="visibility: visible !important;">Please disable your adblock and script blockers to view this page</div>
-<center><h2><img src="../img/BITG-LOGO.png" alt="" width="125" height="165"/>{{TITLE}} Faucet</h2>
+<center><h2><img src="../img/tBITG-LOGO.png" alt="" width="125" height="165"/>{{TITLE}} Faucet</h2>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -55,7 +65,7 @@
 
 	Download Bitcoin Green wallet<b> <a href="https://savebitcoin.io">SaveBitcoin.io </a></b><br><br>
 
-	Find me <b>(and promo codes)</b> on BitcoinGreen's<b> Discord: <a href="https://discord.gg/BHK6RXy"><img src="../img/joindiscord.png" style='height: 10%; width: 10%; object-fit: contain'></a></b><br/>
+	Find me on BitcoinGreen's<b> Discord: <a href="https://discord.gg/BHK6RXy"><img src="../img/joindiscord.png" style='height: 10%; width: 10%; object-fit: contain'></a></b><br/>
 <br/>
 <br/>
 
@@ -73,10 +83,10 @@
         <h3 class="panel-title">TRADE Bitcoin Green here</h3>
     </div>
     <div class="panel-body">
-	<a href="https://wallet.crypto-bridge.org?r=crymesomefiat4"> <img src="../img/CBridge.jpg" style='height: 65%; width: 65%; object-fit: contain'; align="middle">
+	<a href="https://wallet.crypto-bridge.org?r=crymesomefiat4"> <img src="../img/CBridge.jpg" style='height: 65%; width: 65%; object-fit: contain'; align="middle"'>
         </a>
 
-    <a href="https://www.coinexchange.io/market/BITG/BTC?r=378f380e"> <img src="../img/CEio.png" style='height: 65%; width: 65%; object-fit: contain'>
+        <a href="https://www.coinexchange.io/market/BITG/BTC?r=378f380e"> <img src="../img/CEio.png" style='height: 65%; width: 65%; object-fit: contain'>
 	</a>
 
 	<a href="https://www.cryptopia.co.nz/Register?referrer=CryMeSomeCrypto"> <img src="../img/Cryptopia.png" style='height: 50%; width: 50%; object-fit: contain'>
@@ -103,16 +113,17 @@
 
         Payments will be sent after <span class="highlight" >{{STAGED_PAYMENT_THRESHOLD}}</span> staged payments.<br/>
         Operator fee: <span class="highlight" >{{OPERATOR_FEE}}%</span><br/><br/>
-        You can get free {{COINNAME}} every <b>12 HOURS</b>.
+        You can get free {{COINNAME}} every <b>30 Minutes</b>.<br/>
+	{{BALANCE}}
   </div>
 </div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Please donate to keep this faucet flowing</h3>
+        <h3 class="panel-title">Faucet to help developers</h3>
     </div>
     <div class="panel-body">
-	This faucet is funded by donations, to support the faucet signup through one of the Exchanges so BITGfaucet can keep flowing. <br/> <br/>
+	This faucet is to help developers get testnet-BITG for development purposes.  <br/> <br/>
        BITG: {{DONATION_ADDRESS}}
     </div>
 </div>

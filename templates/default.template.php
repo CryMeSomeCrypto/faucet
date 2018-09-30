@@ -12,7 +12,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="author" content="Cryptocurrency faucet script" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon"/>
     <!-- Default CSS -->
     <link rel="stylesheet" href="./css/default.css" type="text/css" />
 
@@ -52,7 +52,7 @@
 
 <div id="wrapper" class="container">
 <div id="babasbmsgx" style="visibility: visible !important;">Please disable your adblock and script blockers to view this page</div>
-<center><h2><img src="images/BITG-LOGO.png" alt="" width="125" height="165"/>{{TITLE}} Faucet</h2>
+<center><h2><img src="../img/BITG-LOGO.png" alt="" width="125" height="165"/>{{TITLE}} Faucet</h2>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -77,13 +77,13 @@ TEXT HERE
         <h3 class="panel-title">TRADE Bitcoin Green here</h3>
     </div>
     <div class="panel-body">
-	<a href="https://wallet.crypto-bridge.org?r=crymesomefiat4"> <img src="images/CBridge.jpg" style='height: 65%; width: 65%; object-fit: contain'; align="middle"'>
+	<a href="https://wallet.crypto-bridge.org?r=crymesomefiat4"> <img src="../img/CBridge.jpg" style='height: 65%; width: 65%; object-fit: contain'; align="middle"'>
         </a>
 
-        <a href="https://www.coinexchange.io/market/BITG/BTC?r=378f380e"> <img src="images/CEio.png" style='height: 65%; width: 65%; object-fit: contain'>
+        <a href="https://www.coinexchange.io/market/BITG/BTC?r=378f380e"> <img src="../img/CEio.png" style='height: 65%; width: 65%; object-fit: contain'>
 	</a>
 
-	<a href="https://www.cryptopia.co.nz/Register?referrer=CryMeSomeCrypto"> <img src="images/Cryptopia.png" style='height: 50%; width: 50%; object-fit: contain'>
+	<a href="https://www.cryptopia.co.nz/Register?referrer=CryMeSomeCrypto"> <img src="../img/Cryptopia.png" style='height: 50%; width: 50%; object-fit: contain'>
         </a><br/>
 
 
@@ -101,7 +101,6 @@ TEXT HERE
 
 
 <script>
-
     // create player
     var youtubevideo;
     function onYouTubePlayerAPIReady() {
@@ -109,9 +108,7 @@ TEXT HERE
           height: '390',
           width: '640',
           videoId: '<?php  echo($sVideoID); ?>',
-
     //Here the video autoplays, the player hide controls and disable keyboard to prevent users from running past the video. NB: Autoplay only works on PCs. iOS 8 also forces Native controls.
-
           playerVars:{'rel':0,'showinfo':0,'autoplay':0,'controls':0,'disablekb':1,'modestbranding':1},
           events: {
             'onReady': onPlayerReady,
@@ -119,12 +116,10 @@ TEXT HERE
           }
         });
     }
-
 function onPlayerReady(event) {
     event.target.playVideo();
 }
     //This tells the youtube player to trigger the hello() function when done watching the video
-
     function onPlayerStateChange(event) {
         if(event.data === 0) {
             showCupon();
