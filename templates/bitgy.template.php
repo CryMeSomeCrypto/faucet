@@ -1,3 +1,10 @@
+<?php
+    global $config;
+    $oDB = @new mysqli($config["mysql_host"],$config["mysql_user"],$config["mysql_password"],$config["mysql_database"]);
+    $hRes = $oDB->query("SELECT * FROM `video_ids`");
+    $aRow = $hRes->fetch_array();
+    $sVideoID = isset($aRow['yuoutube_video_id'])?$aRow['yuoutube_video_id']:'';
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -9,7 +16,7 @@
 
 <!-- Favicons
     ================================================== -->
-<link rel="shortcut icon" href="../img/bitg.favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
@@ -50,18 +57,10 @@
   gtag('config', 'UA-122596044-1');
 </script>
 	
-	<!-- Google AdSense -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4211633838532686",
-    enable_page_level_ads: true
-  });
-</script>
 	
     <!-- chat box -->
 <script id="cid0020000192923326725" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 229px;height: 239px;">{"handle":"bitcoingreen","arch":"js","styles":{"a":"006600","b":100,"c":"FFFFFF","d":"FFFFFF","k":"006600","l":"006600","m":"006600","n":"FFFFFF","p":"10","q":"006600","r":100,"usricon":0,"pos":"br","cv":1,"cvbg":"009900","cvw":263,"cvh":33,"ticker":1,"fwtickm":1}}
-</script> 
+</script>
 	
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -74,11 +73,14 @@
         theme : 'white'
      };
     </script>
+	
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://www.youtube.com/player_api"></script>
   	
 </head>
 	
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-	
 <!-- Navigation
     ==========================================-->
 <nav id="menu" class="navbar navbar-default navbar-fixed-top">
@@ -142,15 +144,16 @@ environmental and economic problems arising from such issues</p>
         </div>
       </div>
       <div class="col-xs-12 col-md-3">
-        <div class="about-media"> <a href="https://bitgex.io/?ref=376d60c3-a83b-4bba-b2ef-26b317225f58"><img src="../img/BITGEX.png" alt=" "> </a></div>
+        <div class="about-media"> <img src="../img/BITGEX.png" alt=" "> </div>
         <div class="about-desc">
-          <a href="https://bitgex.io/?ref=376d60c3-a83b-4bba-b2ef-26b317225f58"><h3>Join Now!!</h3></a>
-							<p>A proof-of-stake focused exchange that automatically sets up optimized staking for all user deposits and removes technical barriers to entry. Users don’t have to worry about missing out on staking rewards while they trade. By allowing users to post trades without interrupting staking, we will be able to bring significant liquidity to the proof-of-stake market. While your coins are on BITGEX, they will be compounding, no configuration or technical knowledge needed!</p>
+          <h3>Coming Soon!</h3>
+          <p>BITGEX will be the first proof-of-stake focused cryptocurrency exchange allowing users to stake their deposits. This means you can trade, place orders, and store your coins on the exchange without having to miss out on your staking rewards.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+	
 <!-- Stats Section -->
 <div id="stats">
   <div class="container">
@@ -184,15 +187,10 @@ Follow @TwitterDev</a>
         </div>
       </div>
       <div class="col-xs-12 col-md-6 text-center">
-		  <br/><br/>
 		  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="2604" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="true"></div>
-		  <br/>
-          <h3>Funded by donations</h3><br/>
-		  <hr>
-          <p> This faucet was started with personal financing with no affiliation with outside parties However, since then we have proudly made a partnership with the BITG team to fund the faucet while we make improvements to the faucet. We are looking forward to adding many features including bounties. </p><br/>
-		  <hr>
-			<h4><b>BITG: {{DONATION_ADDRESS}} </b></h4>
-		  <p> (This address funds the wallet directly)</p>
+          <h3>Funded by donations</h3>
+          <p> This faucet was started with personal financing not affiliated with the BITG team, since then we made a partnership to fund the faucet while I focus on improving the UI experience! </p>
+			<h4><b> BITG: {{DONATION_ADDRESS}} </b></h4>
         </div>
       </div>
 </div>
@@ -200,6 +198,73 @@ Follow @TwitterDev</a>
 </div>
 
 
+
+<!-- bounties -->
+<!-- <div id="wrapper" class="container">
+<h2>{{TITLE}}</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Faucet Promo Video</h3>
+    </div>
+    <div class="panel-body">
+	<div id="youtubevideo"></div>
+
+
+
+<script>
+    
+    // create player
+    var youtubevideo;
+    function onYouTubePlayerAPIReady() {
+        youtubevideo = new YT.Player('youtubevideo', {
+          height: '390',
+          width: '640',
+          videoId: '<?php global $sVideoID; echo($sVideoID); ?>',
+    
+    //Here the video autoplays, the player hide controls and disable keyboard to prevent users from running past the video. NB: Autoplay only works on PCs. iOS 8 also forces Native controls.
+    
+          playerVars:{'rel':0,'showinfo':0,'autoplay':0,'controls':0,'disablekb':1,'modestbranding':1},
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+    }
+
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+    //This tells the youtube player to trigger the hello() function when done watching the video
+    
+    function onPlayerStateChange(event) {        
+        if(event.data === 0) {            
+            showCupon();
+        }
+    }
+    //THe hello function uses ajax to bring up html after the video ends. It is achieved using jquery DOM manupulation
+    function showCupon(){
+        jQuery.ajax({
+                url:'/code.php',
+                type: "POST",
+                data: { },
+                dataType: "json"
+                   })
+                .done(function (json) {  
+                    jQuery('#Code').html(json.code);
+                }
+             );
+    }
+</script>
+        <div style="text-align: center; font-size: 16px; padding: 10px;">Your coupon code:</div>
+        <div style="text-align: center; font-size: 22px; padding: 10px;border: 4px dashed #90b92d;color: #90b92d; border-radius: 8px;" id="Code">Will be available after watching video</div>
+  </div>
+</div>
+</div>
+
+
+
+
+	
 <!-- claim Section -->
 <div id="claim">
   <div class="container">
@@ -367,20 +432,23 @@ Follow @TwitterDev</a>
 {{ADS}}</center>
     </div>
 	</div>
+
+
 <!-- roots Section -->
 <div id="roots" class="text-center">
   <div class="overlay">
     <div class="container">
       <div class="section-title">
-        <h2>BITG Roots Network</h2>
+        <h2>Bounties</h2>
         <hr>
-				 <p>Bitcoin Green has always been about maximum democratization, from its initial distribution onward. Team members sourced from the community have played a vital role in the project’s success to date. BITG holders have kept social channels lively and helpful to newcomers. It’s essential that we now expand our community and bring new faces into the fold. Widespread adoption is the only way Bitcoin Green can seriously shift the status quo in crypto today. That adoption should be achieved through democratic means as well.</p>
+<!--	text for roots
+				<p>Bitcoin Green has always been about maximum democratization, from its initial distribution onward. Team members sourced from the community have played a vital role in the project’s success to date. BITG holders have kept social channels lively and helpful to newcomers. It’s essential that we now expand our community and bring new faces into the fold. Widespread adoption is the only way Bitcoin Green can seriously shift the status quo in crypto today. That adoption should be achieved through democratic means as well.</p>
 
               <p>Nearly all Bitcoin Green team members are individuals who reached out from the community, made big contributions, and were brought into the fold. It is less a process of picking people from the community, and more a process of individuals stepping up to the plate–especially since this project is operated on a volunteer basis.</p>
              
-              <p>The Roots Network is a bounty-driven, community-based awareness campaign. The hope is to fill the network’s ranks with members of the community who are passionate about Bitcoin Green’s mission and want to help drive adoption and outreach. Whether it be at a crypto conference, a message board, or on Twitter, there are numerous opportunities to raise awareness for block-chain sustainability and Bitcoin Green.</p>
+              <p>The Roots Network is a bounty-driven, community-based awareness campaign. The hope is to fill the network’s ranks with members of the community who are passionate about Bitcoin Green’s mission and want to help drive adoption and outreach. Whether it be at a crypto conference, a message board, or on Twitter, there are numerous opportunities to raise awareness for blockchain sustainability and Bitcoin Green.</p>
               <p>Bounties will be posted and updated every other Sunday at two locations the #roots-announcements channel in Discord and the Roots Network Announcements channel on Telegram</p>
-              
+-->              
       </div>
     </div>
   </div>
@@ -391,11 +459,9 @@ Follow @TwitterDev</a>
     <div class="section-title text-center">
       <h2>Contact Us</h2>
       <hr>
-      <p>The easiest way to find us is on the Bitcoin-Green Discord Server</p><br/>
+      <p>Im frequently available on the Bitcoin Green Discord Server</p><br/>
 		<hr>
-		<h3>@CrymeSomeCrypto#1385</h3>
-		BITG:GNnyzGXjopBUiiKUDVcoamuXS1SCMV9ADN<br/><br/>
-		
+		<b>@CryMeSomeCrypto#1385</b>
 		<hr>
 		<a href="https://discord.gg/BHK6RXy"><h3>Join Discord</h3></a>
         <a href="https://discord.gg/BHK6RXy"><img src="../img/joindiscord.png" style='height: 15%; width: 15%'></a>
